@@ -17,6 +17,10 @@ include:
   file.directory:
     - makedirs: True
 
+/srv/webplatform/wiki/{{ env }}/sitematrix.json:
+  file.managed:
+    - source: salt://code/files/wiki/sitematrix.json
+
 /srv/webplatform/wiki/{{ env }}/mediawiki/mirror.php:
   file.managed:
     - source: salt://code/files/wiki/mirror.php

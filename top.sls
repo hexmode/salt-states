@@ -175,6 +175,7 @@ base:
     - discourse.frontend
     - etherpad.frontend
     - webat25.frontend
+    - parsoid.frontend
   'roles:webat:':
     - match: grain
     - webat25.deprecate_me_soon
