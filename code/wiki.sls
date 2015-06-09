@@ -2,6 +2,7 @@
 {%- set alpha_memcache = salt['pillar.get']('infra:alpha_memcache') -%}
 {%- set alpha_redis = salt['pillar.get']('infra:alpha_redis') -%}
 {%- set sessions_redis = salt['pillar.get']('infra:sessions_redis') -%}
+{%- set fxa_sso = salt['pillar.get']('accounts:wiki:fxa_sso') -%}
 {%- set swift_backend = salt['pillar.get']('accounts:wiki:swift') %}
 
 include:
@@ -83,6 +84,7 @@ rsync-run-{{ env }}:
     - user: www-data
     - group: www-data
     - context:
+        fxa_sso: {{ fxa_sso[env] }}
         elastic_nodes_wiki:  {{ elastic_nodes_wiki }}
         swift_backend: {{ swift_backend }}
     - require:
